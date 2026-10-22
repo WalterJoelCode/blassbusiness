@@ -10,12 +10,13 @@ import sitemap from '@astrojs/sitemap';
  * sitemap, the RSS feed and robots.txt.
  */
 const DEFAULT_SITE = 'https://blassbusiness.com';
+const base = process.env.PUBLIC_BASE_URL ?? '';
 
 export default defineConfig({
   site: process.env.SITE_URL ?? DEFAULT_SITE,
-
-  // `base: '/repo-name'` is required for project pages on GitHub Pages.
-  // base: '/swp-freelancer-portfolio',
+  // GitHub Pages supplies its project subpath through the workflow. Leave it
+  // empty for local development and custom domains served from their root.
+  base: base || undefined,
 
   output: 'static',
   trailingSlash: 'always',

@@ -1,9 +1,24 @@
 /** Small helpers shared across pages and components. */
 
+/**
+ * Resolve a file or internal route from the active Astro base path.
+ *
+ * Public assets are intentionally stored as root-like paths in content/data
+ * (`/images/...`). This keeps the data portable while this helper adds the
+ * GitHub Pages project path exactly once at render time.
+ */
+export function withBase(path: string, base = import.meta.env.BASE_URL): string {
+  if (!path || path.startsWith('#') || /^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(path)) return path;
+
+  const prefix = base.endsWith('/') ? base : `${base}/`;
+  if (path === prefix.slice(0, -1) || path.startsWith(prefix)) return path;
+  return `${prefix}${path.replace(/^\/+/, '')}`;
+}
+
 /** Resolve a site-relative path against the configured `site` origin. */
 export function absoluteUrl(path: string, site: URL | undefined): string {
   const origin = site ?? new URL('http://localhost:4321');
-  return new URL(path, origin).href;
+  return new URL(withBase(path), origin).href;
 }
 
 /**
