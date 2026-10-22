@@ -1,15 +1,15 @@
 import type { Stat } from '~/types';
 
 export const stats: Stat[] = [
-  { value: 15, label: 'Years independent' },
-  { value: 40, suffix: '+', label: 'Teams partnered' },
-  { value: 96, suffix: '%', label: 'Would hire again' },
+  { value: 1, label: 'enlace para compartir todo' },
+  { value: 100, suffix: '%', label: 'adaptadas a tus dispositivos' },
+  { value: 0, label: 'límites para crear a tu manera' },
 ];
 
 /** Headline above the stats band, split so the tail can be dimmed. */
 export const statsHeading = {
-  lead: 'Design is mostly deciding what to leave out,',
-  tail: 'then defending that decision for six straight weeks.',
+  lead: 'Las invitaciones digitales son más prácticas,',
+  tail: 'interactivas y memorables desde el primer clic.',
 };
 
 /**

@@ -47,13 +47,20 @@ const { bodyClass, ...seo } = Astro.props;
          enhancements (scroll reveal, the nav drawer) never flash. -->
     <script is:inline>
       document.documentElement.classList.add('js');
+      try {
+        const savedTheme = localStorage.getItem('swp-theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : systemTheme;
+      } catch {
+        document.documentElement.dataset.theme = 'light';
+      }
     </script>
 
     <Seo {...seo} />
   </head>
 
   <body class={bodyClass}>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">Ir al contenido</a>
     <IconSprite />
 
     <div class="swp-shell">

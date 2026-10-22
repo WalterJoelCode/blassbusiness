@@ -1,19 +1,18 @@
 import type { ToolkitItem } from '~/types';
 
 export const toolkit: ToolkitItem[] = [
-  { icon: 'pen', title: 'Art direction', detail: 'One visual language, held across every surface.' },
-  { icon: 'type', title: 'Typography', detail: 'Scales, pairings and a self-hosted font setup.' },
-  { icon: 'motion', title: 'Motion', detail: 'Transitions with a reason, and a reduced-motion path.' },
-  { icon: 'device', title: 'Responsive', detail: 'Every layout checked from 320px through 1920px.' },
-  { icon: 'code', title: 'Front end', detail: 'Semantic markup and CSS your engineers can read.' },
-  { icon: 'spark', title: 'Colour', detail: 'Palettes checked for contrast before they get pretty.' },
-  { icon: 'layers', title: 'Systems', detail: 'Naming that survives the next rebrand.' },
-  { icon: 'flag', title: 'Accessibility', detail: 'Contrast, focus order and keyboard paths, tested.' },
+  { icon: 'phone', title: 'Nos contactas', detail: 'Comparte la fecha, ocasión y tu idea inicial.' },
+  { icon: 'mail', title: 'Definimos requisitos', detail: 'Acordamos información, estilo y funciones necesarias.' },
+  { icon: 'pen', title: 'Diseñamos', detail: 'Creamos una propuesta digital a la medida de tu evento.' },
+  { icon: 'check', title: 'Revisas', detail: 'Presentamos el diseño para tus comentarios.' },
+  { icon: 'spark', title: 'Retroalimentamos', detail: 'Afinamos detalles y realizamos los cambios acordados.' },
+  { icon: 'play', title: 'Publicamos', detail: 'Dejamos tu invitación lista para compartir por enlace.' },
+  { icon: 'flag', title: 'Resultados finales', detail: 'Opcional: resumen de respuestas y alcance; no se entregan editables.' },
 ];
 
 export const toolkitHeading = {
-  eyebrow: 'How I work',
-  title: 'Nothing exotic in the box.',
+  eyebrow: 'Cómo trabajamos',
+  title: 'Un proceso claro para una celebración sin complicaciones.',
   intro:
-    'Tools your team already has, files your team can open, and a handover that does not depend on me answering messages six months from now.',
+    'Te acompañamos desde la primera idea hasta que tu invitación esté lista para llegar a cada invitado.',
 };

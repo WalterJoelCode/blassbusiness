@@ -6,13 +6,10 @@ import type { Client } from '~/types';
  * path or a couple of shapes is all you need.
  */
 export const clients: Client[] = [
-  { name: 'Brightsill', shape: '<circle cx="12" cy="12" r="9"/><path d="M12 3v18"/>' },
-  { name: 'Tessellate', shape: '<path d="M4 20 12 4l8 16z"/>' },
-  { name: 'Coalfield', shape: '<rect x="4" y="4" width="16" height="16" rx="5"/><path d="M9 12h6"/>' },
-  { name: 'Petrichor', shape: '<path d="M12 3.5 20 12l-8 8.5L4 12z"/>' },
-  { name: 'Saltmarsh', shape: '<circle cx="9" cy="12" r="5.5"/><circle cx="15" cy="12" r="5.5"/>' },
-  { name: 'Undergrove', shape: '<path d="M5 18V6l7 6 7-6v12"/>' },
-  { name: 'Meridian', shape: '<circle cx="12" cy="12" r="8.5"/><path d="M7 12h10M12 7v10"/>' },
+  { name: 'Responsabilidad', shape: '<path d="m5 12 4.2 4.2L19 6.8"/>' },
+  { name: 'Creatividad', shape: '<path d="M12 3.5 14 9l5.5 2-5.5 2-2 5.5-2-5.5-5.5-2L10 9z"/>' },
+  { name: 'Interactividad', shape: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v10M7 12h10"/>' },
+  { name: 'Responsividad', shape: '<rect x="5" y="4" width="10" height="16" rx="2"/><path d="M17 8h2v10a2 2 0 0 1-2 2h-4"/>' },
 ];
 
-export const clientsLabel = 'Shipped with 30+ product teams';
+export const clientsLabel = 'Nuestros criterios';

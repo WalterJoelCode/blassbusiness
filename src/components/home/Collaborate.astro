@@ -9,22 +9,13 @@ import { collaborate } from '~/data/highlights';
   <div class="collab-grid">
     <div class="collab-visual rev">
       <div class="mocks">
-        {
-          collaborate.images.map((image, i) => (
-            <div class:list={['mock', i === 0 ? 'mock-a' : 'mock-b']}>
-              <img
-                src={image.src}
-                alt={image.alt}
-                width={image.width}
-                height={image.height}
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          ))
-        }
+        <div class="mock mock-a mock-placeholder" aria-label="Espacio reservado para imagen de invitación en sobre">
+          <span>Invitación en sobre</span>
+        </div>
+        <div class="mock mock-b mock-placeholder" aria-label="Espacio reservado para imagen de invitación digital">
+          <span>Experiencia digital</span>
+        </div>
       </div>
-      <span class="collab-badge">{collaborate.badge}</span>
     </div>
 
     <div class="collab-copy rev rev-d1">
@@ -33,23 +24,23 @@ import { collaborate } from '~/data/highlights';
       <p class="collab-sub">{collaborate.body}</p>
 
       <div class="collab-panel">
-        <a class="cbox" href={`tel:${siteConfig.contact.phoneHref}`}>
+        <a class="cbox" href={siteConfig.contact.whatsapp || '#contact'}>
           <i><Icon name="phone" /></i>
           <span>
-            <span class="cbox-lbl">Call the studio</span>
-            <span class="cbox-val">{siteConfig.contact.phone}</span>
+            <span class="cbox-lbl">WhatsApp</span>
+            <span class="cbox-val">Abrir WhatsApp</span>
           </span>
         </a>
-        <a class="cbox" href={`mailto:${siteConfig.contact.email}`}>
-          <i><Icon name="mail" /></i>
+        <a class="cbox" href="#contact">
+          <i><Icon name="instagram" /></i>
           <span>
-            <span class="cbox-lbl">Write to me</span>
-            <span class="cbox-val">{siteConfig.contact.email}</span>
+            <span class="cbox-lbl">Instagram</span>
+            <span class="cbox-val">Abrir Instagram</span>
           </span>
         </a>
       </div>
 
-      <Button href={collaborate.ctaHref} variant="ink">{collaborate.ctaLabel}</Button>
+      <Button href={siteConfig.contact.whatsapp || '#contact'} variant="ink" icon="phone">{collaborate.ctaLabel}</Button>
     </div>
   </div>
 </section>

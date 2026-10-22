@@ -16,9 +16,12 @@
   /* Faded client-logo grey: 3.2:1 on white, which clears AA for the 19px bold wordmarks. */
   --swp-faint: #8c9280;
   --swp-shell: #ffffff;
+  --swp-dark: #101110;
 
   /* Status */
   --swp-live: #3fa34d;
+  --swp-accent-ink: #c8f14d;
+  --swp-hero-accent: #c8f14d;
 
   /* Typography */
   --font-display: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -40,4 +43,22 @@
 
   /* Motion */
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* The selected theme is set before first paint in BaseLayout. The variables
+   keep all content surfaces and typography consistent without duplicating
+   every component's light styles. */
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --swp-ink: #f4f6ef;
+  --swp-graphite: #d9ded5;
+  --swp-slate: #adb6aa;
+  --swp-mist: #1d231f;
+  --swp-line: #394139;
+  --swp-faint: #899287;
+  --swp-shell: #121613;
+  --swp-dark: #080b09;
+  --swp-live: #61bf6c;
+  --swp-accent-ink: #c8f14d;
+  --swp-hero-accent: #c8f14d;
 }

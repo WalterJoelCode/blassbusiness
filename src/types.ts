@@ -35,6 +35,8 @@ export type IconName =
   | 'quote'
   | 'spark'
   | 'star'
+  | 'sun'
+  | 'moon'
   | 'type'
   | 'up';
 
@@ -97,6 +99,8 @@ export interface SiteConfig {
      * unconnected — see the "Contact form" section of the README.
      */
     formEndpoint: string;
+    /** WhatsApp URL. Leave it blank until the business number is available. */
+    whatsapp: string;
   };
   social: SocialLink[];
   /** Footer blurb. */

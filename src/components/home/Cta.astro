@@ -21,10 +21,14 @@ const { id = 'cta' } = Astro.props;
     <p>{cta.body}</p>
 
     <div class="cta-actions">
-      <Button href="/contact/" variant="ink">{cta.primaryLabel}</Button>
-      <a class="btn btn-outline-ink" href={`tel:${siteConfig.contact.phoneHref}`}>
-        <span>{siteConfig.contact.phone}</span>
+      <Button href={siteConfig.contact.whatsapp} variant="ink" icon="phone">{cta.primaryLabel}</Button>
+      <a class="btn btn-outline-ink" href={siteConfig.contact.whatsapp || '#contact'}>
+        <span>WhatsApp</span>
         <i><Icon name="phone" class="ic-sm" /></i>
+      </a>
+      <a class="btn btn-outline-ink" href="#contact">
+        <span>Instagram</span>
+        <i><Icon name="instagram" class="ic-sm" /></i>
       </a>
     </div>
   </div>

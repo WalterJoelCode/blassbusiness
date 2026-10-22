@@ -323,3 +323,8 @@ a.contact-card:hover span { color: var(--swp-graphite); }
   text-align: center;
   color: var(--swp-slate);
 }
+
+html[data-theme='dark'] .prose pre,
+html[data-theme='dark'] .results { background: var(--swp-dark); }
+html[data-theme='dark'] .case-fact .pill,
+html[data-theme='dark'] .contact-card i { background: #171c18; }

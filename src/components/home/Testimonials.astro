@@ -1,30 +1,23 @@
 ---
-import Button from '../Button.astro';
 import SectionHeading from '../SectionHeading.astro';
-import TestimonialCard from '../cards/TestimonialCard.astro';
-import { testimonials, testimonialsHeading } from '~/data/testimonials';
+import { testimonialsHeading } from '~/data/testimonials';
 ---
 
 <section class="tst" id="testimonials" aria-labelledby="tst-h">
   <div class="wrap sec">
-    <SectionHeading
-      class="rev"
-      eyebrow={testimonialsHeading.eyebrow}
-      title={testimonialsHeading.title}
-      id="tst-h"
-    >
-      <Button href="/work/" variant="outline">Read the full cases</Button>
-    </SectionHeading>
+    <SectionHeading class="rev" eyebrow={testimonialsHeading.eyebrow} title={testimonialsHeading.title} id="tst-h" />
 
-    <div class="tst-grid">
-      {
-        testimonials.map((testimonial, i) => (
-          <TestimonialCard
-            testimonial={testimonial}
-            class:list={['rev', i % 3 > 0 && `rev-d${i % 3}`]}
-          />
-        ))
-      }
+    <div class="tst-grid tst-skeleton-grid">
+      {Array.from({ length: 3 }).map((_, i) => (
+        <article class:list={['tst-card', 'tst-skeleton', 'rev', i > 0 && `rev-d${i}`]} aria-label="Próximamente: testimonio de cliente">
+          <div class="skeleton-line short"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-line"></div>
+          <div class="skeleton-person">
+            <span></span><div><i></i><i></i></div>
+          </div>
+        </article>
+      ))}
     </div>
   </div>
 </section>

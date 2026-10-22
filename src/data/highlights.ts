@@ -5,38 +5,37 @@
  */
 
 export const hero = {
-  greeting: 'Hello. The name is',
+  greeting: 'BlassDesing presenta',
   /** Rendered on two lines. */
-  nameLines: ['Robin', 'Vale'],
+  nameLines: ['Tu evento.', 'Tu experiencia.'],
   intro:
-    'I art-direct and design for teams who already know what they are building, and need it to feel like one thing instead of forty.',
-  ctaLabel: 'Book a call',
-  ctaHref: '/contact/',
+    'Invitaciones web personalizadas para que cada anuncio comience con emoción, información clara e interacción.',
+  ctaLabel: 'Escríbenos por WhatsApp',
+  ctaHref: '#contact',
   photo: {
-    src: '/images/hero-portrait.webp',
-    alt: 'Robin Vale, art director, photographed against a plain studio wall',
+    src: '',
+    alt: '',
     width: 960,
     height: 1210,
   },
   aside: {
-    roleLine: ['Independent of the Year 2026', 'Art Direction & Interface'],
-    title: ['Art', 'Direction'],
+    roleLine: ['Diseño a tu medida', 'Para celebrar en digital'],
+    title: ['Invitaciones', 'interactivas'],
     /** Small avatar stack — decorative, so the images carry empty alt text. */
-    stack: ['/images/avatar-02.webp', '/images/avatar-01.webp', '/images/avatar-03.webp'],
-    stackBadge: '98%',
-    kpi: '210+',
-    kpiLabel: 'launches behind me',
-    note: 'Working across nine time zones',
+    stack: [],
+    stackBadge: '✦',
+    kpi: '100%',
+    kpiLabel: 'personalizadas para tu ocasión',
+    note: 'Diseñadas para compartir desde cualquier dispositivo',
   },
 };
 
 export const collaborate = {
-  eyebrow: 'Working together',
-  title: 'Most of my work arrives as a half-finished thing somebody is quietly worried about.',
-  body: 'Send me yours and I will tell you what I would do with it — honestly, and before there is any question of an invoice. If it is not a fit, I will name someone who is.',
-  badge: 'Independent since 2011',
-  ctaLabel: 'Send me the brief',
-  ctaHref: '/contact/',
+  eyebrow: 'De una invitación a una experiencia',
+  title: 'Tus invitados reciben mucho más que una fecha.',
+  body: 'Cuéntanos la ocasión y la convertimos en una invitación digital con el estilo, la información y las interacciones que tu celebración merece. También podemos diseñar una versión impresa para acompañar tu experiencia.',
+  ctaLabel: 'Contactar por WhatsApp',
+  ctaHref: '#contact',
   /**
    * The staggered pair beside the copy. Swap these for the bundled SVG
    * mockups (`BookletMock`, `TabletMock` in src/components/art/) if you would
@@ -89,8 +88,8 @@ export const servicesHeading = {
 };
 
 export const workHeading = {
-  eyebrow: 'Selected work',
-  title: 'Six projects, six different arguments.',
+  eyebrow: 'Tipos de invitaciones',
+  title: 'Cada ocasión merece una primera impresión inolvidable.',
 };
 
 export const journalHeading = {
@@ -101,7 +100,7 @@ export const journalHeading = {
 };
 
 export const cta = {
-  title: 'Have you got something that deserves doing properly?',
-  body: 'Tell me what is broken, who it is breaking for, and what happens if it stays that way. That is enough for me to come back with a scope and a number.',
-  primaryLabel: 'Send the brief',
+  title: 'Haz que tu celebración comience antes del evento.',
+  body: 'Comparte tu idea y diseñemos una experiencia digital única para tus invitados.',
+  primaryLabel: 'Escríbenos por WhatsApp',
 };

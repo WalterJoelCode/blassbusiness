@@ -1,0 +1,110 @@
+# Identidad gráfica — Blass Business
+
+Este archivo centraliza las decisiones visuales que definen la interfaz. Debe consultarse antes de crear o modificar pantallas, componentes, ilustraciones o comunicaciones de marca.
+
+## Esencia visual
+
+Una identidad editorial, digital y profesional: sobria en su base, de alto contraste y con un acento lima energético. La apariencia combina precisión de producto digital con calidez humana; prioriza aire, jerarquía tipográfica contundente y detalles redondeados.
+
+Principios:
+
+- Minimalismo expresivo: pocas capas visuales, contenido claro y un solo acento dominante.
+- Confianza moderna: negro tinta, blanco y grises orgánicos construyen la base.
+- Energía con intención: el lima señala acciones, estados importantes y detalles de reconocimiento.
+- Claridad antes que decoración: bordes finos, sombras suaves y alto contraste.
+- Diseño accesible: foco visible, tipografía legible y respeto por `prefers-reduced-motion`.
+
+## Paleta cromática
+
+| Uso | Token | Valor |
+| --- | --- | --- |
+| Acento principal / CTA | `--swp-lime` | `#C8F14D` |
+| Acento hover | `--swp-lime-deep` | `#B2DF33` |
+| Texto principal / fondo oscuro | `--swp-ink` | `#101110` |
+| Superficie oscura secundaria | `--swp-graphite` | `#2B2C2A` |
+| Texto secundario | `--swp-slate` | `#6C7068` |
+| Fondo suave | `--swp-mist` | `#F2F3EF` |
+| Líneas y divisores | `--swp-line` | `#E3E5DE` |
+| Marcas discretas / logos | `--swp-faint` | `#8C9280` |
+| Superficie base | `--swp-shell` | `#FFFFFF` |
+| Estado disponible / éxito | `--swp-live` | `#3FA34D` |
+
+El lima no se usa como texto sobre blanco: funciona como relleno, icono o acento frente a tinta oscura. Sobre zonas oscuras, se permite texto blanco y lima para atraer la atención.
+
+### Tema oscuro
+
+El sitio admite tema claro y oscuro. En la primera visita toma la preferencia del sistema; el control de sol/luna en la navegación permite cambiarlo y conserva la elección.
+
+| Uso | Claro | Oscuro |
+| --- | --- | --- |
+| Fondo principal | `#FFFFFF` | `#121613` |
+| Superficie secundaria | `#F2F3EF` | `#1D231F` |
+| Texto principal | `#101110` | `#F4F6EF` |
+| Texto secundario | `#6C7068` | `#ADB6AA` |
+| Bordes | `#E3E5DE` | `#394139` |
+| Superficie profunda | `#101110` | `#080B09` |
+
+En ambos temas, el lima mantiene su función de acción y señalización; las imágenes y las piezas de marca permanecen intactas para conservar fidelidad visual.
+
+## Tipografía
+
+- **Titulares:** `Space Grotesk` (300–700), peso habitual 700, interletraje compacto y moderno.
+- **Texto corrido:** `Inter Tight` (100–900), 16 px y line-height 1.62 como base.
+- **Fallbacks:** `system-ui`, `-apple-system`, `Segoe UI`, `sans-serif`.
+- **Código:** `ui-monospace`, `SFMono-Regular`, `Menlo`, `Consolas`, `monospace`.
+
+Escala de titulares:
+
+| Nivel | Tamaño | Tracking | Interlineado |
+| --- | --- | --- | --- |
+| `d1` | `clamp(46px, 9.2vw, 120px)` | `-0.042em` | `0.9` |
+| `d2` | `clamp(30px, 4.6vw, 58px)` | `-0.032em` | `1.02` |
+| `d3` | `clamp(25px, 3vw, 40px)` | `-0.028em` | heredado |
+| `d4` | `clamp(19px, 1.7vw, 25px)` | `-0.02em` | heredado |
+
+Las etiquetas (`eyebrow`) van en mayúsculas, con `Space Grotesk` 600, tamaño 12 px y tracking `0.15em`; se acompañan de un punto lima profundo.
+
+## Composición y espaciado
+
+- Contenedor máximo: `1920px` (`--shell`), centrado sobre blanco.
+- Padding lateral: `clamp(20px, calc((100vw - 1320px) / 2), 300px)`.
+- Sección estándar: `clamp(64px, 7vw, 110px)`.
+- Sección compacta: `clamp(44px, 5vw, 72px)`.
+- Predominan los grids asimétricos, bloques abiertos y texto con anchos de lectura controlados (40–60 caracteres aproximadamente).
+- La cabecera es fija, blanca semitransparente y con desenfoque; al desplazarse suma línea y sombra ligera.
+
+## Forma, superficies y profundidad
+
+- Radio pequeño: `10px`; medio: `18px`; grande: `26px`; píldora: `999px`.
+- Tarjetas blancas o niebla sobre fondos limpios, con bordes en `--swp-line` y sombras amplias, difusas y de baja opacidad.
+- Iconos, avatares y controles circulares refuerzan el lenguaje amable y contemporáneo.
+- Los separadores son de 1 px, nunca pesados.
+- Las superficies oscuras se reservan para bandas, llamadas a la acción y pie de página; la página conserva un fondo blanco predominante.
+
+## Componentes clave
+
+- **Botones:** forma de píldora, texto `Space Grotesk` 600 y un disco circular de 38 px para el icono. El hover eleva 2 px y rota el icono 45°.
+- **CTA primario:** relleno lima con texto oscuro y disco oscuro.
+- **CTA oscuro:** relleno tinta con texto blanco y disco lima.
+- **Filtros y etiquetas:** píldoras discretas; el estado activo usa tinta con texto blanco.
+- **Tarjetas:** bordes redondeados, contenido espaciado y elevación suave al hover (normalmente 4–5 px).
+- **Navegación:** enlaces sobrios en gris; activo y hover pasan a tinta con una línea inferior animada.
+
+## Movimiento e interacción
+
+- Curva estándar: `cubic-bezier(0.22, 0.61, 0.36, 1)`.
+- Transiciones cortas y suaves, aproximadamente 0.25–0.45 s.
+- Revelado opcional al hacer scroll: opacidad + desplazamiento vertical de 20 px.
+- Todo movimiento se reduce casi por completo cuando la persona activa `prefers-reduced-motion`.
+- El foco de teclado es un contorno de 3 px; en fondos oscuros cambia a lima.
+
+## Dirección visual para imágenes e ilustraciones
+
+- Fotografías limpias, profesionales y cercanas, encuadradas en tarjetas con radio medio/grande.
+- Mockups y gráficos de producto de estilo minimalista: bases niebla/blancas, tinta para estructura y lima para indicadores clave.
+- Evitar gradientes llamativos, saturación excesiva, sombras duras, ornamentos complejos o más de un color de acento en la misma composición.
+- Mantener los espacios negativos generosos y el contraste alto.
+
+## Implementación
+
+Los tokens fuente se mantienen en `src/styles/tokens.css`; las fuentes se declaran en `src/styles/fonts.css`. Al ampliar la identidad, actualizar primero esos tokens y después los componentes que los consumen.

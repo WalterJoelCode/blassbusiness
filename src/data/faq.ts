@@ -2,41 +2,41 @@ import type { FaqItem } from '~/types';
 
 export const faq: FaqItem[] = [
   {
-    question: 'How long does a project usually take?',
+    question: '¿Entregan los archivos editables?',
     answer:
-      'A full product engagement runs six weeks end to end. An identity is three to four. A second opinion is one week. If your deadline is tighter than that, say so early and you will get an honest answer about whether it fits.',
+      'No están incluidos en el servicio estándar. La entrega de editables puede evaluarse como un servicio adicional, con un costo mayor según el alcance del proyecto.',
   },
   {
-    question: 'Is the price fixed?',
+    question: '¿Puedo definir lo que lleva mi invitación?',
     answer:
-      'Yes, wherever the scope is defined. One number, one payment schedule and a written list of what sits inside it. Anything outside becomes a conversation before work starts, never a surprise line on an invoice.',
+      'Sí. Tú defines tus requerimientos: información del evento, galería, música, mapa, cuenta regresiva, confirmación por WhatsApp y otros elementos según el diseño contratado.',
   },
   {
-    question: 'Can you work alongside our engineers?',
+    question: '¿Qué métodos de pago aceptan?',
     answer:
-      'That is the normal arrangement. I join your stand-ups, write specs in whatever format your team already uses, and stay reachable for a month after handover so questions get answered rather than guessed at.',
+      'Aceptamos todos los métodos de pago disponibles que se acuerden previamente para tu comodidad.',
   },
   {
-    question: 'What lands in my hands at the end?',
+    question: '¿Con cuánto tiempo debo solicitar mi invitación?',
     answer:
-      'Source files, a component library with every state documented, a token sheet, exported assets and a written spec covering behaviour and edge cases. Build engagements also include the front-end templates and a configured theme.',
+      'Recomendamos contactarnos al menos 12 días antes de la fecha en que planeas enviar las invitaciones a tus invitados.',
   },
   {
-    question: 'Do you take small pieces of work?',
+    question: '¿La invitación funciona en celulares?',
     answer:
-      'Sometimes. A single landing page, a pricing rewrite or a one-week review all fit comfortably. Anything larger tends to work better as a short sprint than as hours scattered across a quarter.',
+      'Sí. Cada invitación se diseña para verse y funcionar correctamente en celulares, tabletas y computadoras.',
   },
   {
-    question: 'Who owns the work at the end?',
+    question: '¿También realizan sitios web personalizados?',
     answer:
-      'You do, completely, once the final payment clears. Files transfer into your accounts rather than living in mine. I only ask permission to show the work publicly, and I will keep it private if you would rather.',
+      'Sí. Podemos crear sitios web personalizados mucho más interactivos para tu evento o proyecto, desarrollados con Astro y publicados mediante GitHub Pages.',
   },
 ];
 
 export const faqHeading = {
   eyebrow: 'FAQ',
-  title: 'Asked before nearly every project.',
-  asideTitle: 'Not sure yet?',
+  title: 'Todo lo que necesitas saber antes de comenzar.',
+  asideTitle: '¿Tienes otra pregunta?',
   asideBody:
-    'Send a paragraph about what is going wrong. If I am not right for it I will say so and name someone who is, usually the same day.',
+    'Escríbenos y cuéntanos sobre tu evento. Te orientamos para elegir una invitación que se sienta completamente tuya.',
 };

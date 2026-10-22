@@ -13,45 +13,43 @@ import type { SiteConfig } from '~/types';
  * back here through `import.meta.env.SITE`.
  */
 export const siteConfig: SiteConfig = {
-  name: 'SWP Freelancer Portfolio',
+  name: 'Blass Business',
 
   logo: {
-    header: { src: '/images/header-logo.webp', width: 164, height: 58 },
-    footer: { src: '/images/footer-logo.webp', width: 164, height: 58 },
+    header: { src: '/images/blass-media-positive.svg', width: 334, height: 112 },
+    footer: { src: '/images/blass-media-positive.svg', width: 334, height: 112 },
   },
 
-  author: 'Robin Vale',
-  role: 'Art direction & interface design',
-  title: 'SWP Freelancer Portfolio — Art direction & interface design',
+  author: 'BlassDesing',
+  role: 'Invitaciones digitales interactivas',
+  title: 'BlassDesing — Invitaciones digitales interactivas',
   description:
-    'Portfolio of Robin Vale, an independent art director and interface designer working with small product teams on identity, interface and design systems.',
-  url: import.meta.env.SITE ?? 'https://swp-freelancer-portfolio.vercel.app',
+    'BlassDesing crea invitaciones web personalizadas e interactivas para celebrar momentos únicos.',
+  url: import.meta.env.SITE ?? 'https://blassbusiness.com',
   ogImage: '/og-default.png',
-  locale: 'en',
+  locale: 'es-NI',
   themeColor: '#c8f14d',
 
   contact: {
-    email: 'hello@example.com',
-    phone: '+1 (000) 555-0100',
-    phoneHref: '+10005550100',
-    location: 'Remote — working across nine time zones',
-    availability: 'Two project slots open from September',
+    email: '',
+    phone: 'WhatsApp',
+    phoneHref: '',
+    whatsapp: 'https://www.whatsapp.com/',
+    location: 'Nicaragua',
+    availability: 'Momentos únicos, experiencias digitales inolvidables.',
     // Paste a Formspree / Web3Forms / Netlify endpoint here to make the
     // contact form live. See "Contact form" in the README.
     formEndpoint: '',
   },
 
   social: [
-    { label: 'Dribbble', href: 'https://dribbble.com/', icon: 'dribbble' },
-    { label: 'Behance', href: 'https://www.behance.net/', icon: 'behance' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/', icon: 'linkedin' },
     { label: 'Instagram', href: 'https://www.instagram.com/', icon: 'instagram' },
   ],
 
   about:
-    'An independent art direction and design practice for teams of under twenty. Fewer clients, harder questions early, and a handover that does not quietly depend on me.',
+    'Experiencias digitales personalizadas para anunciar, compartir y recordar los momentos que más importan.',
 
-  copyrightHolder: 'SWP Freelancer Portfolio',
+  copyrightHolder: 'Blass Business',
 };
 
 export default siteConfig;

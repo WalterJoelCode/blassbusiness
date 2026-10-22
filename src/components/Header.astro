@@ -24,11 +24,20 @@ function target(href: string, anchor?: string) {
   <div class="wrap hdr-in">
     <a class="brand" href="/">
       <img
+        class="brand-light"
         src={siteConfig.logo.header.src}
         alt={`${siteConfig.name} — home`}
         width={siteConfig.logo.header.width}
         height={siteConfig.logo.header.height}
         fetchpriority="high"
+        decoding="async"
+      />
+      <img
+        class="brand-dark"
+        src={siteConfig.logo.footer.src}
+        alt={`${siteConfig.name} — home`}
+        width={siteConfig.logo.footer.width}
+        height={siteConfig.logo.footer.height}
         decoding="async"
       />
     </a>
@@ -50,11 +59,16 @@ function target(href: string, anchor?: string) {
       }
     </nav>
 
-    <Button href="/work/" variant="ink" class="hdr-cta">See the work</Button>
-
-    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav">
-      <Icon name="menu" />
-    </button>
+    <div class="hdr-actions">
+      <Button href={siteConfig.contact.whatsapp || '#contact'} variant="ink" class="hdr-cta" icon="phone">WhatsApp</Button>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar a modo oscuro" aria-pressed="false">
+        <Icon name="moon" />
+        <span class="sr-only">Cambiar a modo oscuro</span>
+      </button>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mnav">
+        <Icon name="menu" />
+      </button>
+    </div>
   </div>
 
   <div class="mnav" id="mnav">
@@ -70,17 +84,36 @@ function target(href: string, anchor?: string) {
         })
       }
     </nav>
-    <Button href="/contact/" variant="ink">Send the brief</Button>
+    <Button href={siteConfig.contact.whatsapp || '#contact'} variant="ink" icon="phone">WhatsApp</Button>
   </div>
 </header>
 
 <script>
   const burger = document.getElementById('burger');
   const panel = document.getElementById('mnav');
+  const themeToggle = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+
+  const setTheme = (theme: 'light' | 'dark', save = true) => {
+    root.dataset.theme = theme;
+    if (save) localStorage.setItem('swp-theme', theme);
+
+    const dark = theme === 'dark';
+    const icon = themeToggle?.querySelector('use');
+    const label = dark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
+    if (icon) icon.setAttribute('href', dark ? '#i-sun' : '#i-moon');
+    themeToggle?.setAttribute('aria-label', label);
+    themeToggle?.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    themeToggle?.querySelector('.sr-only')?.replaceChildren(label);
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#121613' : '#c8f14d');
+  };
+
+  setTheme(root.dataset.theme === 'dark' ? 'dark' : 'light', false);
+  themeToggle?.addEventListener('click', () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
 
   if (burger && panel) {
-    const OPEN_LABEL = 'Open menu';
-    const CLOSE_LABEL = 'Close menu';
+    const OPEN_LABEL = 'Abrir menú';
+    const CLOSE_LABEL = 'Cerrar menú';
 
     const setIcon = (open: boolean) => {
       const use = burger.querySelector('use');

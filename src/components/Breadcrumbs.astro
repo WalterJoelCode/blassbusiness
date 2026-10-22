@@ -11,9 +11,9 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<nav aria-label="Breadcrumb">
+<nav aria-label="Ruta de navegación">
   <ol class="crumbs">
-    <li><a href="/">Home</a></li>
+    <li><a href="/">Inicio</a></li>
     {
       items.map((item, i) =>
         item.href && i < items.length - 1 ? (

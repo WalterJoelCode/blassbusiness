@@ -31,6 +31,6 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const testimonialsHeading = {
-  eyebrow: 'In their words',
-  title: 'What clients say once the invoice is paid.',
+  eyebrow: 'Experiencias',
+  title: 'Muy pronto, las historias de quienes ya celebraron con nosotros.',
 };

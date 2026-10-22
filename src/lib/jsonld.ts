@@ -17,7 +17,7 @@ export function personSchema(site: SiteConfig): Json {
     name: site.author,
     jobTitle: site.role,
     url: `${site.url}/`,
-    email: `mailto:${site.contact.email}`,
+    ...(site.contact.email ? { email: `mailto:${site.contact.email}` } : {}),
     sameAs: site.social.map((s) => s.href),
   };
 }

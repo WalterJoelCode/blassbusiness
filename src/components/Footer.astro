@@ -1,14 +1,6 @@
 ---
 import Icon from './Icon.astro';
 import siteConfig from '~/config/site';
-import { footerNav } from '~/data/navigation';
-import { getCollection } from 'astro:content';
-import { isVisible } from '~/lib/utils';
-
-const services = (await getCollection('services'))
-  .filter(isVisible)
-  .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 5);
 
 const year = new Date().getFullYear();
 ---
@@ -30,7 +22,7 @@ const year = new Date().getFullYear();
       <div class="ftr-soc">
         {
           siteConfig.social.map((s) => (
-            <a href={s.href} aria-label={s.label} rel="noopener noreferrer" target="_blank">
+            <a href={s.href} aria-label={s.label} rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined} target={s.href.startsWith('http') ? '_blank' : undefined}>
               <Icon name={s.icon} class="ic-sm" />
             </a>
           ))
@@ -38,41 +30,16 @@ const year = new Date().getFullYear();
       </div>
     </div>
 
-    <nav aria-labelledby="ftr-explore">
-      <h2 id="ftr-explore">Explore</h2>
-      <ul class="ftr-links">
-        {footerNav.explore.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
-      </ul>
-    </nav>
-
-    <nav aria-labelledby="ftr-services">
-      <h2 id="ftr-services">Services</h2>
-      <ul class="ftr-links">
-        {services.map((s) => <li><a href={`/services/${s.id}/`}>{s.data.title}</a></li>)}
-      </ul>
-    </nav>
-
     <div>
-      <h2>Get in touch</h2>
+      <h2>Contacto</h2>
       <div class="ftr-cbox">
-        <Icon name="mail" class="ic-sm" />
-        <span><a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a></span>
-      </div>
-      <div class="ftr-cbox">
-        <Icon name="phone" class="ic-sm" />
-        <span><a href={`tel:${siteConfig.contact.phoneHref}`}>{siteConfig.contact.phone}</a></span>
-      </div>
-      <div class="ftr-cbox">
-        <Icon name="pin" class="ic-sm" />
-        <span>{siteConfig.contact.location}</span>
+        <span><a href={siteConfig.contact.whatsapp} rel="noopener noreferrer" target="_blank">WhatsApp</a> · <a href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank">Instagram</a></span>
       </div>
     </div>
   </div>
 
   <div class="wrap ftr-bot">
-    <p>&copy; {year} {siteConfig.copyrightHolder} &mdash; an Astro portfolio theme.</p>
-    <nav aria-label="Legal">
-      {footerNav.legal.map((l) => <a href={l.href}>{l.label}</a>)}
-    </nav>
+    <p>&copy; {year} {siteConfig.copyrightHolder}</p>
+    <p>Sitio web desarrollado por <a href="mailto:waltercastil2019@outlook.com">WalterJoelCode</a></p>
   </div>
 </footer>
