@@ -6,7 +6,7 @@ import Breadcrumbs from '~/components/Breadcrumbs.astro';
 import PostCard from '~/components/cards/PostCard.astro';
 import Button from '~/components/Button.astro';
 import siteConfig from '~/config/site';
-import { isVisible, formatDate, isoDate, absoluteUrl } from '~/lib/utils';
+import { isVisible, formatDate, isoDate, absoluteUrl, withBase } from '~/lib/utils';
 import { graph, blogPostingSchema, breadcrumbSchema, personSchema } from '~/lib/jsonld';
 
 export const getStaticPaths = (async () => {
@@ -81,7 +81,7 @@ const jsonLd = graph([
 
     <div class="article-media rev rev-d1">
       <img
-        src={d.image.src}
+        src={withBase(d.image.src)}
         alt={d.image.alt}
         width={d.image.width}
         height={d.image.height}

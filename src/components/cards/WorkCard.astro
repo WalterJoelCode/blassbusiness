@@ -2,6 +2,7 @@
 import Icon from '../Icon.astro';
 import Artwork from '../art/Artwork.astro';
 import type { CollectionEntry } from 'astro:content';
+import { withBase } from '~/lib/utils';
 
 interface Props {
   project: CollectionEntry<'projects'>;
@@ -24,7 +25,7 @@ const { title, excerpt, year, category, image, artwork } = project.data;
     {
       image ? (
         <img
-          src={image.src}
+          src={withBase(image.src)}
           alt={image.alt}
           width={image.width}
           height={image.height}

@@ -20,11 +20,11 @@ export const siteConfig: SiteConfig = {
     footer: { src: '/images/blass-media-positive.svg', width: 334, height: 112 },
   },
 
-  author: 'BlassDesing',
+  author: 'BlassDesigns',
   role: 'Invitaciones digitales interactivas',
-  title: 'BlassDesing — Invitaciones digitales interactivas',
+  title: 'BlassDesigns — Invitaciones digitales interactivas',
   description:
-    'BlassDesing crea invitaciones web personalizadas e interactivas para celebrar momentos únicos.',
+    'BlassDesigns crea invitaciones web personalizadas e interactivas para celebrar momentos únicos.',
   url: import.meta.env.SITE ?? 'https://blassbusiness.com',
   ogImage: '/og-default.png',
   locale: 'es-NI',

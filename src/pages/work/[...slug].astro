@@ -7,7 +7,7 @@ import Artwork from '~/components/art/Artwork.astro';
 import Button from '~/components/Button.astro';
 import Cta from '~/components/home/Cta.astro';
 import siteConfig from '~/config/site';
-import { isVisible } from '~/lib/utils';
+import { isVisible, withBase } from '~/lib/utils';
 import { graph, breadcrumbSchema, personSchema } from '~/lib/jsonld';
 
 export const getStaticPaths = (async () => {
@@ -65,7 +65,7 @@ const jsonLd = graph([
         {
           d.image ? (
             <img
-              src={d.image.src}
+              src={withBase(d.image.src)}
               alt={d.image.alt}
               width={d.image.width}
               height={d.image.height}

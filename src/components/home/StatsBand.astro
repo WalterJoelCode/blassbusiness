@@ -1,6 +1,7 @@
 ---
 import Icon from '../Icon.astro';
 import { stats, statsHeading, reel } from '~/data/stats';
+import { withBase } from '~/lib/utils';
 ---
 
 <section class="band" aria-labelledby="band-h">
@@ -12,7 +13,7 @@ import { stats, statsHeading, reel } from '~/data/stats';
     <div class="band-row">
       <div class="vid rev rev-d1" id="reel" data-embed={reel.embedUrl || undefined}>
         <img
-          src={reel.image}
+          src={withBase(reel.image)}
           alt={reel.alt}
           width={reel.width}
           height={reel.height}
