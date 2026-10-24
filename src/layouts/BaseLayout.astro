@@ -38,7 +38,6 @@ const { bodyClass, ...seo } = Astro.props;
     <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
     <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
     <link rel="manifest" href={withBase('/site.webmanifest')} />
-    <link rel="alternate" type="application/rss+xml" title={`${siteConfig.name} — Journal`} href={withBase('/rss.xml')} />
 
     <!-- Self-hosted fonts: preload only the subsets most visitors need. -->
     <link rel="preload" href={withBase('/fonts/space-grotesk-latin.woff2')} as="font" type="font/woff2" crossorigin />

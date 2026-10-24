@@ -19,6 +19,7 @@ const configuredSite = new URL(process.env.SITE_URL ?? DEFAULT_SITE);
 const site = base && configuredSite.pathname.replace(/\/$/, '') === base.replace(/\/$/, '')
   ? configuredSite.origin
   : configuredSite.href;
+const legacyTemplateRoutes = /\/(?:about|contact|journal|privacy|services|terms|work)(?:\/|$)/;
 
 export default defineConfig({
   site,
@@ -34,7 +35,13 @@ export default defineConfig({
   // HTML-aware compression so inline spacing in the markup is preserved.
   compressHTML: true,
 
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // Legacy template routes remain in the repository for reference, but
+      // must not be offered to crawlers until they contain BlassDesigns work.
+      filter: (page) => !legacyTemplateRoutes.test(new URL(page).pathname),
+    }),
+  ],
 
   prefetch: {
     prefetchAll: true,

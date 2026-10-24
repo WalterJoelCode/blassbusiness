@@ -18,18 +18,3 @@ export const primaryNav: NavItem[] = [
 export const mobileExtraNav: NavItem[] = [
   { label: 'Contacto', href: '/#contact' },
 ];
-
-export const footerNav = {
-  explore: [
-    { label: 'About', href: '/about/' },
-    { label: 'Services', href: '/services/' },
-    { label: 'Selected work', href: '/work/' },
-    { label: 'Journal', href: '/journal/' },
-    { label: 'Contact', href: '/contact/' },
-  ] satisfies NavItem[],
-  legal: [
-    { label: 'Privacy', href: '/privacy/' },
-    { label: 'Terms', href: '/terms/' },
-    { label: 'RSS', href: '/rss.xml' },
-  ] satisfies NavItem[],
-};

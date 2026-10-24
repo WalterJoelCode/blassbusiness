@@ -1,4 +1,5 @@
 import type { SiteConfig } from '~/types';
+import business from './business';
 
 /**
  * ============================================================
@@ -13,43 +14,33 @@ import type { SiteConfig } from '~/types';
  * back here through `import.meta.env.SITE`.
  */
 export const siteConfig: SiteConfig = {
-  name: 'Blass Business',
+  name: business.name,
 
   logo: {
-    header: { src: '/images/blass-media-positive.svg', width: 334, height: 112 },
-    footer: { src: '/images/blass-media-positive.svg', width: 334, height: 112 },
+    header: business.logo,
+    footer: business.logo,
   },
 
-  author: 'BlassDesigns',
-  role: 'Invitaciones digitales interactivas',
-  title: 'BlassDesigns — Invitaciones digitales interactivas',
-  description:
-    'BlassDesigns crea invitaciones web personalizadas e interactivas para celebrar momentos únicos.',
+  author: business.brand,
+  role: business.role,
+  title: `${business.brand} — ${business.role}`,
+  description: business.description,
   url: new URL(import.meta.env.BASE_URL, import.meta.env.SITE ?? 'https://blassbusiness.com').toString().replace(/\/$/, ''),
   ogImage: '/og-default.png',
-  locale: 'es-NI',
+  locale: business.locale,
   themeColor: '#c8f14d',
 
   contact: {
-    email: '',
-    phone: 'WhatsApp',
-    phoneHref: '',
-    whatsapp: 'https://www.whatsapp.com/',
-    location: 'Nicaragua',
-    availability: 'Momentos únicos, experiencias digitales inolvidables.',
-    // Paste a Formspree / Web3Forms / Netlify endpoint here to make the
-    // contact form live. See "Contact form" in the README.
-    formEndpoint: '',
+    ...business.contact,
+    location: business.location,
+    availability: business.availability,
   },
 
-  social: [
-    { label: 'Instagram', href: 'https://www.instagram.com/', icon: 'instagram' },
-  ],
+  social: business.social,
 
-  about:
-    'Experiencias digitales personalizadas para anunciar, compartir y recordar los momentos que más importan.',
+  about: business.about,
 
-  copyrightHolder: 'Blass Business',
+  copyrightHolder: business.copyrightHolder,
 };
 
 export default siteConfig;
