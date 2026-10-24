@@ -11,9 +11,17 @@ import sitemap from '@astrojs/sitemap';
  */
 const DEFAULT_SITE = 'https://blassbusiness.com';
 const base = process.env.PUBLIC_BASE_URL ?? '';
+const configuredSite = new URL(process.env.SITE_URL ?? DEFAULT_SITE);
+
+// `configure-pages` returns a full URL that already includes the repository
+// path. Astro appends `base` to `site`, so retain only the origin here when
+// both values describe the same GitHub Pages project path.
+const site = base && configuredSite.pathname.replace(/\/$/, '') === base.replace(/\/$/, '')
+  ? configuredSite.origin
+  : configuredSite.href;
 
 export default defineConfig({
-  site: process.env.SITE_URL ?? DEFAULT_SITE,
+  site,
   // GitHub Pages supplies its project subpath through the workflow. Leave it
   // empty for local development and custom domains served from their root.
   base: base || undefined,

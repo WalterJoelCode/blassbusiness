@@ -25,7 +25,7 @@ export const siteConfig: SiteConfig = {
   title: 'BlassDesigns — Invitaciones digitales interactivas',
   description:
     'BlassDesigns crea invitaciones web personalizadas e interactivas para celebrar momentos únicos.',
-  url: import.meta.env.SITE ?? 'https://blassbusiness.com',
+  url: new URL(import.meta.env.BASE_URL, import.meta.env.SITE ?? 'https://blassbusiness.com').toString().replace(/\/$/, ''),
   ogImage: '/og-default.png',
   locale: 'es-NI',
   themeColor: '#c8f14d',

@@ -74,6 +74,34 @@ html[data-theme='dark'] .brand-dark { display: block; }
   transition: background 0.25s var(--ease), color 0.25s var(--ease), transform 0.25s var(--ease);
 }
 .theme-toggle:hover { background: var(--swp-lime); color: var(--swp-dark); transform: translateY(-2px); }
+.theme-toggle { position: relative; isolation: isolate; overflow: visible; }
+.theme-toggle::after {
+  content: '';
+  position: absolute;
+  inset: 50%;
+  z-index: -1;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--swp-lime);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+.theme-toggle.is-switching::after { animation: theme-button-wave 1.25s var(--ease) both; }
+@keyframes theme-button-wave {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: .85; }
+  100% { transform: translate(-50%, -50%) scale(18); opacity: 0; }
+}
+@keyframes theme-page-wave {
+  from { clip-path: circle(0 at var(--theme-wave-x) var(--theme-wave-y)); }
+  to { clip-path: circle(150vmax at var(--theme-wave-x) var(--theme-wave-y)); }
+}
+::view-transition-old(root) { animation: none; }
+::view-transition-new(root) { animation: theme-page-wave 1.25s var(--ease) both; }
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle.is-switching::after { animation: none; }
+  ::view-transition-new(root) { animation: none; }
+}
 .burger {
   display: none;
   width: 44px;
