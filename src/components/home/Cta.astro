@@ -21,7 +21,7 @@ const { id = 'cta' } = Astro.props;
     <p>{cta.body}</p>
 
     <div class="cta-actions">
-      <Button href={siteConfig.contact.whatsapp} variant="ink" icon="phone">{cta.primaryLabel}</Button>
+      <Button href={siteConfig.contact.whatsapp || '#contact'} variant="ink" icon="phone">{cta.primaryLabel}</Button>
       <a class="btn btn-outline-ink" href={siteConfig.contact.whatsapp || '#contact'}>
         <span>WhatsApp</span>
         <i><Icon name="phone" class="ic-sm" /></i>

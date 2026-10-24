@@ -33,14 +33,17 @@ const year = new Date().getFullYear();
 
     <div>
       <h2>Contacto</h2>
-      <div class="ftr-cbox">
-        <span><a href={siteConfig.contact.whatsapp} rel="noopener noreferrer" target="_blank">WhatsApp</a> · <a href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank">Instagram</a></span>
-      </div>
+      {siteConfig.contact.whatsapp && (
+        <div class="ftr-cbox"><span><a href={siteConfig.contact.whatsapp} rel="noopener noreferrer" target="_blank">WhatsApp</a></span></div>
+      )}
+      {siteConfig.social.map((social) => (
+        <div class="ftr-cbox"><span><a href={social.href} rel="noopener noreferrer" target="_blank">{social.label}</a></span></div>
+      ))}
     </div>
   </div>
 
   <div class="wrap ftr-bot">
     <p>&copy; {year} {siteConfig.copyrightHolder}</p>
-    <p>Sitio web desarrollado por <a href="mailto:waltercastil2019@outlook.com">WalterJoelCode</a></p>
+    <p>Sitio web de {siteConfig.copyrightHolder}</p>
   </div>
 </footer>

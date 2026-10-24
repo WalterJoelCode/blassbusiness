@@ -110,7 +110,26 @@ function target(href: string, anchor?: string) {
   };
 
   setTheme(root.dataset.theme === 'dark' ? 'dark' : 'light', false);
-  themeToggle?.addEventListener('click', () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
+  themeToggle?.addEventListener('click', (event) => {
+    const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion || !document.startViewTransition) {
+      setTheme(theme);
+      return;
+    }
+
+    const { left, top, width, height } = (event.currentTarget as HTMLElement).getBoundingClientRect();
+    root.style.setProperty('--theme-wave-x', `${left + width / 2}px`);
+    root.style.setProperty('--theme-wave-y', `${top + height / 2}px`);
+    themeToggle.classList.remove('is-switching');
+    void themeToggle.offsetWidth;
+    themeToggle.classList.add('is-switching');
+
+    document.startViewTransition(() => setTheme(theme)).finished.finally(() => {
+      themeToggle.classList.remove('is-switching');
+    });
+  });
 
   if (burger && panel) {
     const OPEN_LABEL = 'Abrir menú';
