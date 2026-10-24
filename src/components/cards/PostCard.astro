@@ -1,6 +1,6 @@
 ---
 import Icon from '../Icon.astro';
-import { formatDate, isoDate } from '~/lib/utils';
+import { formatDate, isoDate, withBase } from '~/lib/utils';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -19,7 +19,7 @@ const href = `/journal/${post.id}/`;
 <article class:list={['post', className]}>
   <a class="post-media" href={href} tabindex="-1" aria-hidden="true">
     <img
-      src={image.src}
+      src={withBase(image.src)}
       alt=""
       width={image.width}
       height={image.height}

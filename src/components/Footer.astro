@@ -1,6 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import siteConfig from '~/config/site';
+import { withBase } from '~/lib/utils';
 
 const year = new Date().getFullYear();
 ---
@@ -10,7 +11,7 @@ const year = new Date().getFullYear();
     <div>
       <a class="ftr-brand" href="/">
         <img
-          src={siteConfig.logo.footer.src}
+          src={withBase(siteConfig.logo.footer.src)}
           alt={`${siteConfig.name} — home`}
           width={siteConfig.logo.footer.width}
           height={siteConfig.logo.footer.height}

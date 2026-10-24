@@ -1,6 +1,6 @@
-# BlassDesing
+# BlassDesigns
 
-Sitio web de **BlassDesing**, iniciativa de Blass Business para crear invitaciones digitales personalizadas e interactivas. El proyecto está desarrollado con Astro y se publica como sitio estático en GitHub Pages.
+Sitio web de **BlassDesigns**, iniciativa de Blass Business para crear invitaciones digitales personalizadas e interactivas. El proyecto está desarrollado con Astro y se publica como sitio estático en GitHub Pages.
 
 ## Desarrollo local
 
@@ -29,9 +29,9 @@ El resultado se crea en `dist/`. El despliegue en GitHub Pages se realiza median
 
 ## Derechos de autor y uso de marca
 
-Copyright © 2026 Blass Business / BlassDesing. Todos los derechos reservados sobre la identidad y los materiales de la marca, salvo donde se indique expresamente lo contrario.
+Copyright © 2026 Blass Business / BlassDesigns. Todos los derechos reservados sobre la identidad y los materiales de la marca, salvo donde se indique expresamente lo contrario.
 
-La denominación **Blass Business**, **BlassDesing**, sus logotipos, identidad visual, textos comerciales, diseños de invitaciones, composiciones, recursos gráficos y contenido de este sitio no pueden copiarse, reproducirse, modificarse, distribuirse ni utilizarse con fines comerciales o publicitarios sin autorización previa y escrita de Blass Business.
+La denominación **Blass Business**, **BlassDesigns**, sus logotipos, identidad visual, textos comerciales, diseños de invitaciones, composiciones, recursos gráficos y contenido de este sitio no pueden copiarse, reproducirse, modificarse, distribuirse ni utilizarse con fines comerciales o publicitarios sin autorización previa y escrita de Blass Business.
 
 Las invitaciones, piezas gráficas y sitios hechos para clientes se rigen por el alcance y las condiciones acordadas para cada encargo. La cesión de archivos editables, entregables fuente, licencias de uso o derechos adicionales solo procede cuando conste expresamente en ese acuerdo.
 
@@ -39,7 +39,7 @@ Las fotografías, tipografías, iconos, bibliotecas u otros recursos de terceros
 
 ## Código del sitio
 
-La base técnica de este repositorio deriva de **SWP Freelancer Portfolio**. El código distribuido en este repositorio se mantiene bajo la licencia [MIT](LICENSE), que aplica únicamente al software y no concede derechos sobre las marcas, logotipos, diseños personalizados ni contenidos de Blass Business / BlassDesing descritos arriba.
+La base técnica de este repositorio deriva de **SWP Freelancer Portfolio**. El código distribuido en este repositorio se mantiene bajo la licencia [MIT](LICENSE), que aplica únicamente al software y no concede derechos sobre las marcas, logotipos, diseños personalizados ni contenidos de Blass Business / BlassDesigns descritos arriba.
 
 Al reutilizar el código, sustituye la identidad de marca y verifica las licencias de cualquier recurso que añadas.
 

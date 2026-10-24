@@ -4,6 +4,7 @@ import Button from '../Button.astro';
 import Signature from '../art/Signature.astro';
 import siteConfig from '~/config/site';
 import { about } from '~/data/highlights';
+import { withBase } from '~/lib/utils';
 
 interface Props {
   /** `h1` when the About page renders this as its main heading. */
@@ -18,7 +19,7 @@ const { headingLevel: Heading = 'h2', id = 'about' } = Astro.props;
   <div class="about-grid">
     <div class="about-img rev">
       <img
-        src={about.image.src}
+        src={withBase(about.image.src)}
         alt={about.image.alt}
         width={about.image.width}
         height={about.image.height}
