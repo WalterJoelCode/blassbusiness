@@ -2,7 +2,7 @@
 import Icon from './Icon.astro';
 import Button from './Button.astro';
 import siteConfig from '~/config/site';
-import { primaryNav, mobileExtraNav } from '~/data/navigation';
+import { primaryNav } from '~/data/navigation';
 import { withBase } from '~/lib/utils';
 
 const path = Astro.url.pathname;
@@ -75,7 +75,7 @@ function target(href: string, anchor?: string) {
   <div class="mnav" id="mnav">
     <nav aria-label="Mobile">
       {
-        [...primaryNav, ...mobileExtraNav].map((item) => {
+        primaryNav.map((item) => {
           const s = state(item.href);
           return (
             <a href={item.href} aria-current={s === 'page' ? 'page' : undefined}>
