@@ -9,7 +9,7 @@ const year = new Date().getFullYear();
 <footer class="ftr">
   <div class="wrap ftr-top">
     <div>
-      <a class="ftr-brand" href="/">
+      <a class="ftr-brand" href={withBase('/')}>
         <img
           src={withBase(siteConfig.logo.footer.src)}
           alt={`${siteConfig.name} — home`}

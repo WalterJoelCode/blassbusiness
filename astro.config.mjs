@@ -10,7 +10,10 @@ import sitemap from '@astrojs/sitemap';
  * sitemap, the RSS feed and robots.txt.
  */
 const DEFAULT_SITE = 'https://blassbusiness.com';
-const base = process.env.PUBLIC_BASE_URL ?? '';
+const GITHUB_PAGES_BASE = '/blassbusiness';
+const base = process.env.PUBLIC_BASE_URL ?? (
+  process.env.GITHUB_ACTIONS === 'true' ? GITHUB_PAGES_BASE : ''
+);
 const configuredSite = new URL(process.env.SITE_URL ?? DEFAULT_SITE);
 
 // `configure-pages` returns a full URL that already includes the repository
