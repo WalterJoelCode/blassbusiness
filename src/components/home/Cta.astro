@@ -26,7 +26,7 @@ const { id = 'cta' } = Astro.props;
         <span>WhatsApp</span>
         <i><Icon name="phone" class="ic-sm" /></i>
       </a>
-      <a class="btn btn-outline-ink" href="#contact">
+      <a class="btn btn-outline-ink" href={siteConfig.contact.instagram || '#contact'}>
         <span>Instagram</span>
         <i><Icon name="instagram" class="ic-sm" /></i>
       </a>

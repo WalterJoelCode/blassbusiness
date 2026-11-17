@@ -1,10 +1,18 @@
 ---
 import SectionHeading from '../SectionHeading.astro';
 import { workHeading } from '~/data/highlights';
+import { withBase } from '~/lib/utils';
 
 const invitationTypes = [
-  'Baby showers', 'Bodas', 'Bautizos', 'Fiestas', 'Aniversarios',
-  'Graduaciones', 'Festividades religiosas', 'Homenajes luctuosos', 'Y muchas más',
+  { title: 'Baby showers', image: '/images/preview/babyshower.png', description: 'Una bienvenida dulce y especial para celebrar la llegada.' },
+  { title: 'Bodas', image: '/images/preview/boda.png', description: 'El comienzo de una historia contada con elegancia y emoción.' },
+  { title: 'Bautizos', image: '/images/preview/bautizo.png', description: 'Un día de fe y familia para guardar en el corazón.' },
+  { title: 'Fiestas', image: '/images/preview/cumpleanos.png', description: 'Colores, alegría y todos los detalles de tu celebración.' },
+  { title: 'Aniversarios', image: '/images/preview/aniversario.png', description: 'Una experiencia para celebrar todo lo que han construido juntos.' },
+  { title: 'Graduaciones', image: '/images/preview/graduacion.png', description: 'Un reconocimiento inolvidable para una meta alcanzada.' },
+  { title: 'Festividades religiosas', image: '/images/preview/religioso.png', description: 'Comparte con tus seres queridos los detalles de un momento de fe.' },
+  { title: 'Homenajes luctuosos', image: '/images/preview/luctuoso.png', description: 'Una invitación respetuosa para acompañar y honrar una memoria.' },
+  { title: 'Y muchas más', image: '/images/preview/white.png', description: 'Cuéntanos tu ocasión y creamos una experiencia a tu medida.' },
 ];
 ---
 
@@ -15,13 +23,17 @@ const invitationTypes = [
     {
       invitationTypes.map((type, i) => (
         <a class:list={['work-card invitation-card', 'rev', i % 3 > 0 && `rev-d${i % 3}`]} href="#contact">
-          <div class="work-media invitation-media">
-            <span>BlassDesigns</span>
+          <div class:list={['work-media', 'invitation-media', type.image && 'has-image']}>
+            {type.image ? (
+              <img src={withBase(type.image)} alt={`Vista previa de invitación para ${type.title}`} width="1240" height="1240" loading="lazy" decoding="async" />
+            ) : (
+              <span>BlassDesigns</span>
+            )}
           </div>
           <div class="work-body">
             <div>
-              <h3>{type}</h3>
-              <span>Diseño digital personalizado</span>
+              <h3>{type.title}</h3>
+              <span>{type.description}</span>
             </div>
           </div>
         </a>

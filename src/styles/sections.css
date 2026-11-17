@@ -365,18 +365,17 @@ html[data-theme='dark'] .hero-placeholder img { filter: brightness(0) invert(1);
 @keyframes swp-spin { to { transform: rotate(360deg); } }
 
 @media (max-width: 1080px) {
-  .hero-grid { grid-template-columns: 1fr 1fr; gap: 34px; }
-  .hero-right-stage { grid-column: auto; grid-row: auto; min-height: auto; display: contents; }
+  .hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(250px, 0.75fr); gap: clamp(24px, 3.4vw, 38px); }
+  .hero-right-stage { grid-column: 2; grid-row: 1; min-height: clamp(330px, 35vw, 430px); display: block; }
   .hero-card { position: relative; right: auto; top: auto; grid-column: auto; grid-row: span 2; width: auto; transform: none; order: 2; }
   .hero-card:hover { transform: translateY(-3px); }
   .hero-right {
-    min-height: auto;
-    display: block;
-    border-left: 0;
-    padding-left: 0;
-    border-top: 1.5px solid var(--swp-line);
-    padding-top: 26px;
-    order: 3;
+    min-height: clamp(330px, 35vw, 430px);
+    display: flex;
+    border-left: 1.5px solid var(--swp-line);
+    border-top: 0;
+    padding: 0 0 14px clamp(18px, 2vw, 28px);
+    order: initial;
   }
   .hero-mark { display: none; }
 }
@@ -387,7 +386,7 @@ html[data-theme='dark'] .hero-placeholder img { filter: brightness(0) invert(1);
 @media (max-width: 960px) {
   .hero { padding-top: 30px; }
   .hero-grid { grid-template-columns: 1fr !important; gap: 32px; }
-  .hero-right-stage { display: block; min-height: 0; }
+  .hero-right-stage { grid-column: auto; grid-row: auto; display: block; min-height: 0; }
   .hero-right {
     min-height: 0;
     display: block;
@@ -487,9 +486,12 @@ html[data-theme='dark'] .hero-placeholder img { filter: brightness(0) invert(1);
   grid-template-columns: minmax(0, 1.06fr) minmax(0, 1fr);
   gap: clamp(28px, 4.4vw, 76px);
   align-items: center;
+  max-width: 1180px;
+  margin-inline: auto;
 }
-.collab-copy { order: 2; }
-.collab-visual { order: 1; position: relative; }
+.collab-intro { grid-column: 2; grid-row: 1; }
+.collab-visual { grid-column: 1; grid-row: 1 / span 2; position: relative; }
+.collab-details { grid-column: 2; grid-row: 2; }
 .collab-h { margin: 16px 0 20px; }
 .collab-h b { font-weight: 700; }
 .collab-sub {
@@ -583,17 +585,21 @@ html[data-theme='dark'] .hero-placeholder img { filter: brightness(0) invert(1);
 }
 
 @media (max-width: 880px) {
-  .collab-grid { grid-template-columns: 1fr; }
-  .collab-copy { order: 1; }
-  .collab-visual { order: 2; }
+  .collab-grid { grid-template-columns: 1fr; gap: 0; max-width: 760px; }
+  .collab-intro,
+  .collab-visual,
+  .collab-details { grid-column: 1; }
+  .collab-intro { grid-row: 1; }
+  .collab-visual { grid-row: 2; margin: clamp(24px, 3.2vw, 42px) 0; }
+  .collab-details { grid-row: 3; }
   .mock-a,
   .mock-b { margin: 0; }
 }
 @media (max-width: 560px) {
-  /* Two contact boxes side by side leave no room for a phone number. */
-  .collab-panel { grid-template-columns: 1fr; }
-  .cbox { border-right: 0; border-bottom: 1.5px solid var(--swp-line); }
-  .cbox:last-child { border-bottom: 0; }
+  .cbox { gap: 8px; padding: 14px 10px; }
+  .cbox i { width: 36px; height: 36px; }
+  .cbox-lbl { font-size: 11px; }
+  .cbox-val { font-size: 13px; }
 }
 
 /* ============================================================
@@ -659,8 +665,12 @@ html[data-theme='dark'] .hero-placeholder img { filter: brightness(0) invert(1);
 }
 .stat span { font-size: 13.5px; color: rgba(255, 255, 255, 0.6); display: block; margin-top: 8px; }
 
-@media (max-width: 880px) { .band-row { grid-template-columns: 1fr; } }
+@media (min-width: 561px) and (max-width: 880px) {
+  .band-row { grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr); gap: 20px; }
+}
 @media (max-width: 560px) {
+  .band-row { grid-template-columns: 1fr; }
+  .vid { aspect-ratio: 4 / 5; }
   .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
   .stat {
     border-top: 0;
@@ -837,14 +847,14 @@ html[data-theme='dark'] .hero-placeholder img { filter: brightness(0) invert(1);
   gap: clamp(16px, 1.9vw, 26px);
 }
 .invitation-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.invitation-grid .work-media { aspect-ratio: 1 / .86; }
-.invitation-grid .work-body { padding: 16px; }
+.invitation-grid .work-media { aspect-ratio: 1 / 1; }
+.invitation-grid .work-body { padding: 11px 14px 13px; }
 .invitation-grid .work-body h3 { font-size: 17px; }
 @media (max-width: 1200px) { .invitation-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (max-width: 900px) { .invitation-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 900px) { .invitation-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 680px) {
   .invitation-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .invitation-grid .work-body { padding: 14px 12px 16px; }
+  .invitation-grid .work-body { padding: 10px 12px 12px; }
   .invitation-grid .work-body h3 { font-size: 15px; }
   .invitation-grid .work-body span { font-size: 12px; }
 }
@@ -924,7 +934,9 @@ html[data-theme='dark'] .hero-placeholder img { filter: brightness(0) invert(1);
   transform: rotate(-8deg);
   opacity: .55;
 }
+.invitation-media.has-image::before { display: none; }
 .invitation-media span { position: relative; font-family: var(--font-display); font-weight: 700; letter-spacing: -.03em; }
+.invitation-grid .work-body span { line-height: 1.25; margin-top: 4px; }
 
 /* ============================================================
    10. Process
@@ -1155,6 +1167,10 @@ html[data-theme='dark'] .hero-placeholder img { filter: brightness(0) invert(1);
 .faq-aside p { font-size: 14.8px; color: var(--swp-slate); margin-bottom: 24px; }
 
 @media (max-width: 880px) { .faq-grid { grid-template-columns: 1fr; } }
+@media (max-width: 680px) {
+  .faq-q { padding-block: 18px; }
+  .faq-a p { padding-right: 0; }
+}
 
 /* ============================================================
    15. CTA
@@ -1175,6 +1191,10 @@ html[data-theme='dark'] .hero-placeholder img { filter: brightness(0) invert(1);
 .cta-ring { position: absolute; border-radius: 50%; border: 1.5px solid rgba(16, 17, 16, 0.14); }
 .cta-ring.a { width: 340px; height: 340px; left: -120px; bottom: -150px; }
 .cta-ring.b { width: 240px; height: 240px; right: -70px; top: -90px; }
+@media (max-width: 560px) {
+  .cta-actions { flex-direction: column; align-items: stretch; }
+  .cta-actions .btn { justify-content: space-between; }
+}
 
 /* ============================================================
    16. Footer

@@ -6,9 +6,9 @@ import business from './business';
  *  THE ONE FILE TO EDIT FIRST
  * ============================================================
  *
- * Everything here is demo content. Replace it with your own and the
- * header, footer, hero, contact page, metadata, structured data, RSS
- * feed and sitemap all follow.
+ * Site-wide configuration is assembled here. Edit `src/config/business.ts`
+ * for the business and contact values used by the header, footer, contact
+ * page, metadata, structured data, RSS feed and sitemap.
  *
  * The canonical URL lives in `astro.config.mjs` (`site`) and is read
  * back here through `import.meta.env.SITE`.

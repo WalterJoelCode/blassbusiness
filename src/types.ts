@@ -101,6 +101,11 @@ export interface SiteConfig {
     formEndpoint: string;
     /** WhatsApp URL. Leave it blank until the business number is available. */
     whatsapp: string;
+    /** Social profile URLs managed from `src/config/business.ts`. */
+    instagram: string;
+    facebook: string;
+    linkedin: string;
+    tiktok: string;
   };
   social: SocialLink[];
   /** Footer blurb. */

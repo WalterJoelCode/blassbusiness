@@ -1,8 +1,31 @@
 /**
- * Datos de negocio editables en un solo lugar.
+ * ÚNICO ARCHIVO PARA EDITAR LOS DATOS DEL NEGOCIO Y CONTACTO.
  *
- * Completa los campos vacíos antes de publicar datos de contacto reales.
+ * Completa los campos vacíos con tus datos reales. Las páginas, botones,
+ * footer, SEO y datos estructurados toman la información desde aquí.
  */
+const contact = {
+  email: '',
+  phone: '',
+  /** Número en formato internacional para enlaces tel:, por ejemplo +505... */
+  phoneHref: '',
+  /** URL completa de WhatsApp, por ejemplo https://wa.me/505... */
+  whatsapp: '',
+  /** URL completa del perfil de Instagram. */
+  instagram: '',
+  /** URLs opcionales de otras redes. */
+  facebook: '',
+  linkedin: '',
+  tiktok: '',
+  formEndpoint: '',
+};
+
+const social = [
+  { label: 'Instagram', href: contact.instagram, icon: 'instagram' as const },
+  { label: 'Facebook', href: contact.facebook, icon: 'facebook' as const },
+  { label: 'LinkedIn', href: contact.linkedin, icon: 'linkedin' as const },
+].filter((item) => item.href.trim());
+
 export const business = {
   name: 'Blass Business',
   brand: 'BlassDesigns',
@@ -17,15 +40,8 @@ export const business = {
     width: 334,
     height: 112,
   },
-  contact: {
-    email: '',
-    phone: '',
-    phoneHref: '',
-    whatsapp: '',
-    instagram: '',
-    formEndpoint: '',
-  },
-  social: [] as { label: string; href: string; icon: 'instagram' }[],
+  contact,
+  social,
   availability: 'Momentos únicos, experiencias digitales inolvidables.',
   about:
     'Experiencias digitales personalizadas para anunciar, compartir y recordar los momentos que más importan.',

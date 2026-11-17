@@ -1,26 +1,43 @@
 ---
 import Icon from '../Icon.astro';
-import Button from '../Button.astro';
 import siteConfig from '~/config/site';
 import { collaborate } from '~/data/highlights';
+import { withBase } from '~/lib/utils';
 ---
 
-<section class="wrap sec" aria-labelledby="collab-h">
+<section class="wrap sec" id="experiencia" aria-labelledby="collab-h">
   <div class="collab-grid">
-    <div class="collab-visual rev">
-      <div class="mocks">
-        <div class="mock mock-a mock-placeholder" aria-label="Espacio reservado para imagen de invitación en sobre">
-          <span>Invitación en sobre</span>
-        </div>
-        <div class="mock mock-b mock-placeholder" aria-label="Espacio reservado para imagen de invitación digital">
-          <span>Experiencia digital</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="collab-copy rev rev-d1">
+    <div class="collab-intro rev">
       <p class="eyebrow">{collaborate.eyebrow}</p>
       <h2 class="d3 collab-h" id="collab-h"><b>{collaborate.title}</b></h2>
+    </div>
+
+    <div class="collab-visual rev" aria-label="De una invitación en sobre a una experiencia digital">
+        <div class="mocks">
+          <div class="mock mock-a" aria-label="Invitación en sobre">
+            <img
+              src={withBase('/images/welcome/beforeinvitation.png')}
+              alt="Invitación en sobre"
+              width="800"
+              height="800"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="mock mock-b" aria-label="Experiencia digital">
+            <img
+              src={withBase('/images/welcome/afterinvitation.png')}
+              alt="Experiencia digital"
+              width="800"
+              height="800"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+    </div>
+
+    <div class="collab-details rev rev-d1">
       <p class="collab-sub">{collaborate.body}</p>
 
       <div class="collab-panel">
@@ -31,7 +48,7 @@ import { collaborate } from '~/data/highlights';
             <span class="cbox-val">Abrir WhatsApp</span>
           </span>
         </a>
-        <a class="cbox" href="#contact">
+        <a class="cbox" href={siteConfig.contact.instagram || '#contact'}>
           <i><Icon name="instagram" /></i>
           <span>
             <span class="cbox-lbl">Instagram</span>
@@ -39,8 +56,6 @@ import { collaborate } from '~/data/highlights';
           </span>
         </a>
       </div>
-
-      <Button href={siteConfig.contact.whatsapp || '#contact'} variant="ink" icon="phone">{collaborate.ctaLabel}</Button>
     </div>
   </div>
 </section>
