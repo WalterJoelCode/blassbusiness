@@ -17,13 +17,13 @@ function state(href: string) {
 
 /** On the homepage, nav items with an anchor scroll instead of navigating. */
 function target(href: string, anchor?: string) {
-  return isHome && anchor ? anchor : href;
+  return isHome && anchor ? anchor : withBase(href);
 }
 ---
 
 <header class="hdr" id="top">
   <div class="wrap hdr-in">
-    <a class="brand" href="/">
+    <a class="brand" href={withBase('/')}>
       <img
         class="brand-light"
         src={withBase(siteConfig.logo.header.src)}
@@ -78,7 +78,7 @@ function target(href: string, anchor?: string) {
         primaryNav.map((item) => {
           const s = state(item.href);
           return (
-            <a href={item.href} aria-current={s === 'page' ? 'page' : undefined}>
+            <a href={target(item.href, item.anchor)} aria-current={s === 'page' ? 'page' : undefined}>
               {item.label}
             </a>
           );
