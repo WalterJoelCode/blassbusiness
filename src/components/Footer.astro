@@ -4,11 +4,13 @@ import siteConfig from '~/config/site';
 import { withBase } from '~/lib/utils';
 
 const year = new Date().getFullYear();
+const developerName = 'Walter Joel';
+const developerLinkedIn = siteConfig.contact.linkedin.trim();
 ---
 
 <footer class="ftr">
-  <div class="wrap ftr-top">
-    <div>
+  <div class="wrap ftr-in">
+    <div class="ftr-brand-wrap">
       <a class="ftr-brand" href={withBase('/')}>
         <img
           src={withBase(siteConfig.logo.footer.src)}
@@ -19,27 +21,15 @@ const year = new Date().getFullYear();
           decoding="async"
         />
       </a>
-      <p class="ftr-about">{siteConfig.about}</p>
-      <div class="ftr-soc">
-        {
-          siteConfig.social.map((s) => (
-            <a href={s.href} aria-label={s.label} rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined} target={s.href.startsWith('http') ? '_blank' : undefined}>
-              <Icon name={s.icon} class="ic-sm" />
-            </a>
-          ))
-        }
-      </div>
     </div>
-
-    <div>
-      <h2>Contacto</h2>
-      {siteConfig.contact.whatsapp && (
-        <div class="ftr-cbox"><span><a href={siteConfig.contact.whatsapp} rel="noopener noreferrer" target="_blank">WhatsApp</a></span></div>
+    <p class="ftr-credit">
+      Desarrollado por {developerName}
+      {developerLinkedIn && (
+        <a href={developerLinkedIn} rel="noopener noreferrer" target="_blank">
+          <Icon name="linkedin" class="ic-xs" /> LinkedIn
+        </a>
       )}
-      {siteConfig.social.map((social) => (
-        <div class="ftr-cbox"><span><a href={social.href} rel="noopener noreferrer" target="_blank">{social.label}</a></span></div>
-      ))}
-    </div>
+    </p>
   </div>
 
   <div class="wrap ftr-bot">

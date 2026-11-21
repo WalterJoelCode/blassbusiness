@@ -1,16 +1,16 @@
-# Identidad gráfica — Blass Business
+# Identidad gráfica — Valbas
 
 Este archivo centraliza las decisiones visuales que definen la interfaz. Debe consultarse antes de crear o modificar pantallas, componentes, ilustraciones o comunicaciones de marca.
 
 ## Esencia visual
 
-Una identidad editorial, digital y profesional: sobria en su base, de alto contraste y con un acento lima energético. La apariencia combina precisión de producto digital con calidez humana; prioriza aire, jerarquía tipográfica contundente y detalles redondeados.
+Una identidad editorial, digital y profesional: sobria en su base, de alto contraste y con un acento rojo energético. La apariencia combina precisión de producto digital con calidez humana; prioriza aire, jerarquía tipográfica contundente y detalles redondeados.
 
 Principios:
 
 - Minimalismo expresivo: pocas capas visuales, contenido claro y un solo acento dominante.
 - Confianza moderna: negro tinta, blanco y grises orgánicos construyen la base.
-- Energía con intención: el lima señala acciones, estados importantes y detalles de reconocimiento.
+- Energía con intención: el Redwood señala acciones y el Burnt Umber refuerza hover, profundidad y estados activos.
 - Claridad antes que decoración: bordes finos, sombras suaves y alto contraste.
 - Diseño accesible: foco visible, tipografía legible y respeto por `prefers-reduced-motion`.
 
@@ -18,18 +18,19 @@ Principios:
 
 | Uso | Token | Valor |
 | --- | --- | --- |
-| Acento principal / CTA | `--swp-lime` | `#C8F14D` |
-| Acento hover | `--swp-lime-deep` | `#B2DF33` |
-| Texto principal / fondo oscuro | `--swp-ink` | `#101110` |
-| Superficie oscura secundaria | `--swp-graphite` | `#2B2C2A` |
-| Texto secundario | `--swp-slate` | `#6C7068` |
-| Fondo suave | `--swp-mist` | `#F2F3EF` |
-| Líneas y divisores | `--swp-line` | `#E3E5DE` |
-| Marcas discretas / logos | `--swp-faint` | `#8C9280` |
-| Superficie base | `--swp-shell` | `#FFFFFF` |
-| Estado disponible / éxito | `--swp-live` | `#3FA34D` |
+| Acento principal / CTA — Redwood | `--swp-lime` | `#B02A29` |
+| Acento hover / profundidad — Burnt Umber | `--swp-lime-deep` | `#6D120B` |
+| Texto principal / estructura — Cool Blue | `--swp-ink` | `#113047` |
+| Superficie azul secundaria | `--swp-graphite` | `#1D4057` |
+| Texto secundario | `--swp-slate` | `#4F6B7C` |
+| Fondo suave — blanco celeste tenue | `--swp-mist` | `#EEF5F8` |
+| Líneas y divisores | `--swp-line` | `#DCE5E9` |
+| Estados secundarios — Light Grayish | `--swp-faint` | `#739AB9` |
+| Superficie base — blanco limpio | `--swp-shell` | `#FFFFFF` |
+| Texto claro / contraste cálido | `--swp-accent-ink` | `#F3F3EA` |
+| Estado disponible | `--swp-live` | `#739AB9` |
 
-El lima no se usa como texto sobre blanco: funciona como relleno, icono o acento frente a tinta oscura. Sobre zonas oscuras, se permite texto blanco y lima para atraer la atención.
+El Redwood no se usa como texto corrido sobre Chantilly: funciona como relleno, icono o acento con texto Chantilly. Sobre zonas oscuras, se reserva para acciones primarias y se acompaña de Chantilly o Light Grayish para conservar contraste.
 
 ### Tema oscuro
 
@@ -37,14 +38,14 @@ El sitio admite tema claro y oscuro. En la primera visita toma la preferencia de
 
 | Uso | Claro | Oscuro |
 | --- | --- | --- |
-| Fondo principal | `#FFFFFF` | `#121613` |
-| Superficie secundaria | `#F2F3EF` | `#1D231F` |
-| Texto principal | `#101110` | `#F4F6EF` |
-| Texto secundario | `#6C7068` | `#ADB6AA` |
-| Bordes | `#E3E5DE` | `#394139` |
-| Superficie profunda | `#101110` | `#080B09` |
+| Fondo principal | `#FFFFFF` | `#000000` |
+| Superficie secundaria | `#EEF5F8` | `#111417` |
+| Texto principal | `#113047` | `#F7F8F6` |
+| Texto secundario | `#4F6B7C` | `#AAC1CF` |
+| Bordes | `#DDD8CA` | `#31576D` |
+| Superficie profunda | `#113047` | `#081E2C` |
 
-En ambos temas, el lima mantiene su función de acción y señalización; las imágenes y las piezas de marca permanecen intactas para conservar fidelidad visual.
+En ambos temas, el Redwood mantiene su función de acción y señalización; el azul estructura la lectura y el Light Grayish aporta estados secundarios sin competir con la conversión.
 
 ## Tipografía
 

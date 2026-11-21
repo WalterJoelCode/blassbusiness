@@ -117,6 +117,10 @@ them in `public/fonts/`, and add matching `@font-face` blocks with the right
 Every icon and every piece of artwork in this theme was drawn for it. There is
 no icon-library dependency.
 
+The interactive invitation uses `public/images/invitation-envelope.svg`, downloaded
+from the official [Tabler Icons](https://github.com/tabler/tabler-icons)
+repository. Tabler Icons is MIT licensed.
+
 | Asset | Where |
 | --- | --- |
 | 29-icon sprite | `src/components/icons/IconSprite.astro` |

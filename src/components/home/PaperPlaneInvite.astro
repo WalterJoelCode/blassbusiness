@@ -1,0 +1,210 @@
+---
+import { withBase } from '~/lib/utils';
+---
+
+<div class="paper-plane-invitation" data-paper-plane-invitation>
+  <button class="invite-trigger" type="button" aria-expanded="false" aria-controls="paper-plane-dialog">
+    <span class="invite-trigger-icon" aria-hidden="true">
+      <img src={withBase('/images/invitation-envelope.svg')} alt="" width="28" height="28" />
+    </span>
+    <span class="sr-only">Mostrar invitación de Valbas</span>
+  </button>
+
+  <div class="invitation-modal" id="paper-plane-dialog" aria-hidden="true" hidden>
+    <div class="invitation-backdrop" data-dialog-close></div>
+    <svg class="invitation-flight" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <path class="invitation-flight-path" d="M-10 70 C 13 65, 17 22, 43 31 S 77 70, 111 18"></path>
+      <image class="invitation-plane" href={withBase('/images/invitation-envelope.svg')} x="-14" y="-12" width="28" height="24" preserveAspectRatio="xMidYMid meet"></image>
+    </svg>
+
+    <section class="invitation-dialog" role="dialog" aria-modal="true" aria-labelledby="invitation-dialog-title" aria-describedby="invitation-dialog-copy" tabindex="-1">
+      <button class="invitation-close" type="button" data-dialog-close aria-label="Cerrar invitación">×</button>
+      <div class="invitation-card-mark" aria-hidden="true"><span></span><i></i></div>
+      <p class="invitation-dialog-kicker">Una primera impresión inolvidable</p>
+      <h2 id="invitation-dialog-title">Los momentos especiales merecen invitaciones extraordinarias</h2>
+      <p class="invitation-dialog-copy" id="invitation-dialog-copy">Sorprende desde el primer instante con una invitación digital única, interactiva y diseñada para emocionar.</p>
+      <a class="invitation-dialog-cta" href="#contact">Solicitar mi cotización</a>
+    </section>
+  </div>
+</div>
+
+<script>
+  import { gsap } from 'gsap';
+  import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+
+  gsap.registerPlugin(MotionPathPlugin);
+
+  type InvitationInstance = { cleanup: () => void };
+  const instances: InvitationInstance[] = [];
+  const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+  const setupInvitations = () => {
+    document.querySelectorAll<HTMLElement>('[data-paper-plane-invitation]').forEach((root) => {
+      if (root.dataset.initialized === 'true') return;
+      root.dataset.initialized = 'true';
+
+      const trigger = root.querySelector<HTMLButtonElement>('.invite-trigger');
+      const modal = root.querySelector<HTMLElement>('.invitation-modal');
+      const dialog = root.querySelector<HTMLElement>('.invitation-dialog');
+      const backdrop = root.querySelector<HTMLElement>('.invitation-backdrop');
+      const closeButton = root.querySelector<HTMLButtonElement>('.invitation-close');
+      const cta = root.querySelector<HTMLAnchorElement>('.invitation-dialog-cta');
+      const plane = root.querySelector<SVGImageElement>('.invitation-plane');
+      const flightPath = root.querySelector<SVGPathElement>('.invitation-flight-path');
+      const kicker = root.querySelector<HTMLElement>('.invitation-dialog-kicker');
+      const title = root.querySelector<HTMLElement>('#invitation-dialog-title');
+      const copy = root.querySelector<HTMLElement>('#invitation-dialog-copy');
+      const cardMark = root.querySelector<HTMLElement>('.invitation-card-mark');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let timeline: gsap.core.Timeline | null = null;
+      let previousFocus: HTMLElement | null = null;
+      let focusTimer: number | null = null;
+      let isOpen = false;
+      let hasAutoPlayed = false;
+      const sessionKey = 'valbas-paper-plane-invitation-seen';
+
+      const setFinalState = () => {
+        gsap.set(backdrop, { autoAlpha: 1 });
+        gsap.set(plane, { autoAlpha: 0 });
+        gsap.set(dialog, { autoAlpha: 1, y: 0, scale: 1, rotateX: 0 });
+        gsap.set([cardMark, kicker, title, copy, cta], { autoAlpha: 1, y: 0 });
+      };
+
+      const open = () => {
+        if (isOpen || !modal || !dialog || !flightPath || !plane) return;
+        isOpen = true;
+        previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+        modal.hidden = false;
+        modal.setAttribute('aria-hidden', 'false');
+        trigger?.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('invitation-modal-open');
+
+        timeline?.kill();
+        gsap.set(modal, { autoAlpha: 1 });
+        gsap.set(dialog, { autoAlpha: 0, y: 34, scale: .88, rotateX: 7, transformPerspective: 900 });
+        gsap.set([cardMark, kicker, title, copy, cta], { autoAlpha: 0, y: 18 });
+        gsap.set(plane, { autoAlpha: 0, transformOrigin: '50% 50%', scale: .72 });
+
+        if (reducedMotion.matches) {
+          setFinalState();
+        } else {
+          timeline = gsap.timeline({ defaults: { overwrite: 'auto' } });
+          timeline
+            .to(backdrop, { autoAlpha: 1, duration: .4, ease: 'power2.out' })
+            .to(plane, { autoAlpha: 1, duration: .18, ease: 'power1.out' }, .28)
+            .to(plane, {
+              duration: 1.5,
+              scale: 1,
+              motionPath: { path: flightPath, align: flightPath, alignOrigin: [.5, .5], autoRotate: true },
+              ease: 'power2.inOut',
+            }, .32)
+            .to(plane, { autoAlpha: 0, scale: .82, duration: .34, ease: 'power2.out' }, 1.62)
+            .to(dialog, { autoAlpha: 1, y: 0, scale: 1, rotateX: 0, duration: .72, ease: 'back.out(1.35)' }, 1.9)
+            .to(cardMark, { autoAlpha: 1, y: 0, duration: .32, ease: 'power2.out' }, 2.16)
+            .to([kicker, title, copy, cta], { autoAlpha: 1, y: 0, duration: .4, stagger: .08, ease: 'power2.out' }, 2.26);
+        }
+
+        if (focusTimer) window.clearTimeout(focusTimer);
+        focusTimer = window.setTimeout(() => closeButton?.focus(), reducedMotion.matches ? 0 : 2250);
+      };
+
+      const close = () => {
+        if (!isOpen || !modal || !dialog) return;
+        isOpen = false;
+        if (focusTimer) window.clearTimeout(focusTimer);
+        focusTimer = null;
+        timeline?.kill();
+        timeline = null;
+        trigger?.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('invitation-modal-open');
+
+        if (reducedMotion.matches) {
+          modal.hidden = true;
+          modal.setAttribute('aria-hidden', 'true');
+        } else {
+          gsap.timeline({ onComplete: () => {
+            modal.hidden = true;
+            modal.setAttribute('aria-hidden', 'true');
+          } })
+            .to(dialog, { autoAlpha: 0, y: 16, scale: .96, duration: .22, ease: 'power2.in' })
+            .to(backdrop, { autoAlpha: 0, duration: .2, ease: 'power2.in' }, '<');
+        }
+        previousFocus?.focus();
+      };
+
+      const onKeydown = (event: KeyboardEvent) => {
+        if (!isOpen) return;
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          close();
+          return;
+        }
+        if (event.key !== 'Tab' || !dialog) return;
+        const focusable = [...dialog.querySelectorAll<HTMLElement>(focusableSelector)];
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      };
+
+      const onMotionChange = (event: MediaQueryListEvent) => {
+        if (event.matches && isOpen) {
+          timeline?.kill();
+          setFinalState();
+        }
+      };
+
+      const markAsSeen = () => {
+        hasAutoPlayed = true;
+        try { window.sessionStorage.setItem(sessionKey, 'true'); } catch { /* storage may be unavailable */ }
+      };
+
+      const shouldAutoPlay = () => {
+        try { return window.sessionStorage.getItem(sessionKey) !== 'true'; } catch { return !hasAutoPlayed; }
+      };
+
+      const visibilityObserver = 'IntersectionObserver' in window
+        ? new IntersectionObserver((entries) => {
+            if (entries.some((entry) => entry.isIntersecting) && !hasAutoPlayed && shouldAutoPlay()) {
+              markAsSeen();
+              open();
+              visibilityObserver?.disconnect();
+            }
+          }, { threshold: .35 })
+        : null;
+
+      trigger?.addEventListener('click', open);
+      backdrop?.addEventListener('click', close);
+      closeButton?.addEventListener('click', close);
+      cta?.addEventListener('click', close);
+      document.addEventListener('keydown', onKeydown);
+      reducedMotion.addEventListener?.('change', onMotionChange);
+      visibilityObserver?.observe(root);
+
+      instances.push({
+        cleanup: () => {
+          if (focusTimer) window.clearTimeout(focusTimer);
+          timeline?.kill();
+          document.body.classList.remove('invitation-modal-open');
+          trigger?.removeEventListener('click', open);
+          backdrop?.removeEventListener('click', close);
+          closeButton?.removeEventListener('click', close);
+          cta?.removeEventListener('click', close);
+          document.removeEventListener('keydown', onKeydown);
+          reducedMotion.removeEventListener?.('change', onMotionChange);
+          visibilityObserver?.disconnect();
+        },
+      });
+    });
+  };
+
+  setupInvitations();
+  document.addEventListener('astro:page-load', setupInvitations);
+  document.addEventListener('astro:before-swap', () => instances.splice(0).forEach(({ cleanup }) => cleanup()));
+</script>

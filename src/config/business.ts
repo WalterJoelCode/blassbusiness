@@ -27,17 +27,22 @@ const social = [
 ].filter((item) => item.href.trim());
 
 export const business = {
-  name: 'Blass Business',
-  brand: 'BlassDesigns',
+  name: 'Valbas',
+  brand: 'Valbas',
   role: 'Invitaciones digitales interactivas',
   description:
-    'BlassDesigns crea invitaciones web personalizadas e interactivas para celebrar momentos únicos.',
+    'Valbas crea invitaciones web personalizadas e interactivas para celebrar momentos únicos.',
   locale: 'es-NI',
   countryCode: 'NI',
   location: 'Nicaragua',
   logo: {
-    src: '/images/blass-media-positive.svg',
+    src: '/images/valbas-logo.svg',
     width: 334,
+    height: 112,
+  },
+  iso: {
+    src: '/images/valbas-iso.svg',
+    width: 115,
     height: 112,
   },
   contact,
@@ -45,7 +50,7 @@ export const business = {
   availability: 'Momentos únicos, experiencias digitales inolvidables.',
   about:
     'Experiencias digitales personalizadas para anunciar, compartir y recordar los momentos que más importan.',
-  copyrightHolder: 'Blass Business',
+  copyrightHolder: 'Valbas',
 };
 
 export default business;
