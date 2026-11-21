@@ -58,12 +58,12 @@
 .btn:hover > i { transform: rotate(45deg); }
 .btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
 
-.btn-lime { background: var(--swp-lime); color: var(--swp-dark); }
-.btn-lime > i { background: var(--swp-dark); color: var(--swp-lime); }
+.btn-lime { background: var(--swp-lime); color: var(--swp-accent-ink); }
+.btn-lime > i { background: var(--swp-dark); color: var(--swp-accent-ink); }
 .btn-lime:hover { background: var(--swp-lime-deep); }
 
-.btn-ink { background: var(--swp-ink); color: #fff; }
-.btn-ink > i { background: var(--swp-lime); color: var(--swp-ink); }
+.btn-ink { background: var(--swp-dark); color: var(--swp-accent-ink); }
+.btn-ink > i { background: var(--swp-lime); color: var(--swp-accent-ink); }
 
 .btn-outline {
   background: transparent;
@@ -76,18 +76,18 @@
 /* Outline button sitting on the lime CTA panel */
 .btn-outline-ink {
   background: transparent;
-  color: var(--swp-dark);
-  box-shadow: inset 0 0 0 1.5px rgba(16, 17, 16, 0.25);
+  color: var(--swp-accent-ink);
+  box-shadow: inset 0 0 0 1.5px rgba(243, 243, 234, 0.42);
 }
-.btn-outline-ink > i { background: rgba(16, 17, 16, 0.08); color: var(--swp-dark); }
-.btn-outline-ink:hover { box-shadow: inset 0 0 0 1.5px var(--swp-dark); }
+.btn-outline-ink > i { background: rgba(17, 48, 71, 0.24); color: var(--swp-accent-ink); }
+.btn-outline-ink:hover { box-shadow: inset 0 0 0 1.5px var(--swp-accent-ink); }
 
 .btn-ghost-light {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
   box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.22);
 }
-.btn-ghost-light > i { background: var(--swp-lime); color: var(--swp-ink); }
+.btn-ghost-light > i { background: var(--swp-lime); color: var(--swp-accent-ink); }
 .btn-ghost-light:hover { background: rgba(255, 255, 255, 0.18); }
 
 /* ---- Section heading pattern ------------------------------ */
@@ -103,6 +103,13 @@
 .sh h1,
 .sh h2 { margin-top: 16px; }
 .sh p { margin-top: 16px; max-width: 52ch; }
+
+/* On wide screens section headings can use the full editorial column instead
+   of inheriting the narrow mobile reading measure. This keeps long titles to
+   two balanced lines when the layout has room for them. */
+@media (min-width: 1001px) {
+  .sh-l { max-width: none; }
+}
 
 /* ---- Chips / filters -------------------------------------- */
 .chip {
@@ -160,7 +167,7 @@
   height: 48px;
   border-radius: 50%;
   background: var(--swp-ink);
-  color: var(--swp-lime);
+  color: var(--swp-faint);
   display: grid;
   place-items: center;
   opacity: 0;

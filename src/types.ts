@@ -69,7 +69,7 @@ export interface SiteConfig {
    * footer, so they usually differ in colour. Give the files' real pixel
    * dimensions — the CSS sets the display height and the ratio prevents shift.
    */
-  logo: { header: LogoImage; footer: LogoImage };
+  logo: { header: LogoImage; footer: LogoImage; iso: LogoImage };
   /** Full name of the person the portfolio belongs to. */
   author: string;
   /** Role line shown under the hero and used in structured data. */

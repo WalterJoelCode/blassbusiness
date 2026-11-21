@@ -5,7 +5,7 @@
  */
 
 export const hero = {
-  greeting: 'BlassDesigns presenta',
+  greeting: 'Valbas presenta',
   /** Rendered on two lines. */
   nameLines: ['Tu evento.', 'Tu experiencia.'],
   intro:

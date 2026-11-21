@@ -1,6 +1,7 @@
 ---
 import Icon from '../Icon.astro';
 import Button from '../Button.astro';
+import PaperPlaneInvite from './PaperPlaneInvite.astro';
 import siteConfig from '~/config/site';
 import { hero } from '~/data/highlights';
 ---
@@ -21,6 +22,7 @@ import { hero } from '~/data/highlights';
         <p class="hero-role">
           {hero.aside.roleLine[0]}<br />{hero.aside.roleLine[1]}
         </p>
+        <PaperPlaneInvite />
         <h2 class="d2 hero-title2">
           {hero.aside.title[0]}<br />{hero.aside.title[1]}
         </h2>

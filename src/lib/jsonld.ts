@@ -31,7 +31,7 @@ export function organizationSchema(site: SiteConfig): Json {
   };
 }
 
-/** @deprecated Use organizationSchema for all new BlassDesigns pages. */
+/** @deprecated Use organizationSchema for all new Valbas pages. */
 export const personSchema = organizationSchema;
 
 export function websiteSchema(site: SiteConfig): Json {

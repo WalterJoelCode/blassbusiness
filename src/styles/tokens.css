@@ -1,27 +1,26 @@
 /* ============================================================
-   SWP Freelancer Portfolio | Design tokens
+   Valbas | Design tokens
    ------------------------------------------------------------
    Everything that defines the look of the theme lives here.
    Change these values to re-skin the whole site.
    ============================================================ */
 :root {
-  /* Brand palette */
-  --swp-lime: #c8f14d;
-  --swp-lime-deep: #b2df33;
-  --swp-ink: #101110;
-  --swp-graphite: #2b2c2a;
-  --swp-slate: #6c7068; /* nudged 2 points darker than #6e7269 for AA on --swp-mist */
-  --swp-mist: #f2f3ef;
-  --swp-line: #e3e5de;
-  /* Faded client-logo grey: 3.2:1 on white, which clears AA for the 19px bold wordmarks. */
-  --swp-faint: #8c9280;
+  /* Valbas palette: Redwood, Burnt Umber, Cool Blue, Light Grayish, cool white, Chantilly */
+  --swp-lime: #b02a29;
+  --swp-lime-deep: #6d120b;
+  --swp-ink: #113047;
+  --swp-graphite: #1d4057;
+  --swp-slate: #4f6b7c;
+  --swp-mist: #eef5f8;
+  --swp-line: #dce5e9;
+  --swp-faint: #739ab9;
   --swp-shell: #ffffff;
-  --swp-dark: #101110;
+  --swp-dark: #113047;
 
   /* Status */
-  --swp-live: #3fa34d;
-  --swp-accent-ink: #c8f14d;
-  --swp-hero-accent: #c8f14d;
+  --swp-live: #739ab9;
+  --swp-accent-ink: #f3f3ea;
+  --swp-hero-accent: #b02a29;
 
   /* Typography */
   --font-display: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -50,15 +49,17 @@
    every component's light styles. */
 html[data-theme='dark'] {
   color-scheme: dark;
-  --swp-ink: #f4f6ef;
-  --swp-graphite: #d9ded5;
-  --swp-slate: #adb6aa;
-  --swp-mist: #1d231f;
-  --swp-line: #394139;
-  --swp-faint: #899287;
-  --swp-shell: #121613;
-  --swp-dark: #080b09;
-  --swp-live: #61bf6c;
-  --swp-accent-ink: #c8f14d;
-  --swp-hero-accent: #c8f14d;
+  --swp-lime: #d8504d;
+  --swp-lime-deep: #a82224;
+  --swp-ink: #f7f8f6;
+  --swp-graphite: #d9e6ec;
+  --swp-slate: #a9bac2;
+  --swp-mist: #111417;
+  --swp-line: #2a3238;
+  --swp-faint: #8ab5d2;
+  --swp-shell: #000000;
+  --swp-dark: #050607;
+  --swp-live: #8ab5d2;
+  --swp-accent-ink: #f3f3ea;
+  --swp-hero-accent: #739ab9;
 }

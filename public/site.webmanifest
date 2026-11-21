@@ -1,11 +1,11 @@
 {
-  "name": "SWP Freelancer Portfolio",
-  "short_name": "SWP Portfolio",
-  "description": "A fast, accessible Astro portfolio theme for freelance art directors, designers and small studios.",
+  "name": "Valbas",
+  "short_name": "Valbas",
+  "description": "Invitaciones digitales personalizadas e interactivas para momentos únicos.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#c8f14d",
+  "theme_color": "#b02a29",
   "icons": [
     {
       "src": "favicon.svg",
